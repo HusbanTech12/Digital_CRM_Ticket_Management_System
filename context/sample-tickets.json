@@ -1,0 +1,301 @@
+{
+  "sample_tickets": [
+    {
+      "id": 1,
+      "channel": "email",
+      "customer_email": "john.developer@startup.io",
+      "subject": "How do I create an API key?",
+      "content": "Hi,\n\nI just signed up for DevFlow and I'm trying to integrate it with our CI/CD pipeline. I can't figure out how to generate an API key. Could you please help?\n\nThanks,\nJohn",
+      "category": "authentication",
+      "priority": "medium",
+      "sentiment": 0.7,
+      "requires_escalation": false
+    },
+    {
+      "id": 2,
+      "channel": "whatsapp",
+      "customer_phone": "+14155551234",
+      "content": "hey my pipeline is stuck in pending status. been waiting 20 mins. is there an outage?",
+      "category": "cicd",
+      "priority": "high",
+      "sentiment": 0.4,
+      "requires_escalation": false
+    },
+    {
+      "id": 3,
+      "channel": "email",
+      "customer_email": "sarah.cto@techcorp.com",
+      "subject": "Enterprise pricing inquiry",
+      "content": "Hello,\n\nWe're a team of 200 developers and we're interested in the Enterprise plan. Can you provide custom pricing? We also need SSO and dedicated support.\n\nBest regards,\nSarah Chen\nCTO, TechCorp",
+      "category": "pricing",
+      "priority": "high",
+      "sentiment": 0.8,
+      "requires_escalation": true
+    },
+    {
+      "id": 4,
+      "channel": "web_form",
+      "customer_email": "mike@webdev.co",
+      "customer_name": "Mike Johnson",
+      "subject": "GitHub integration not working",
+      "content": "I tried connecting our GitHub repository but keep getting an authorization error. I've tried multiple times and cleared my browser cache. Using Chrome on Mac.",
+      "category": "integrations",
+      "priority": "medium",
+      "sentiment": 0.5,
+      "requires_escalation": false
+    },
+    {
+      "id": 5,
+      "channel": "whatsapp",
+      "customer_phone": "+14155559876",
+      "content": "THIS IS RIDICULOUS!!! Your platform deleted our entire production database!!! We're losing thousands of dollars every minute!!! I want a FULL REFUND immediately!!!",
+      "category": "critical",
+      "priority": "critical",
+      "sentiment": 0.1,
+      "requires_escalation": true
+    },
+    {
+      "id": 6,
+      "channel": "email",
+      "customer_email": "dev@smallstartup.com",
+      "subject": "Question about rate limits",
+      "content": "Hi Team,\n\nWe're on the Starter plan and hitting rate limits quickly. What are the exact limits and how can we increase them without upgrading?\n\nThanks",
+      "category": "api",
+      "priority": "low",
+      "sentiment": 0.6,
+      "requires_escalation": false
+    },
+    {
+      "id": 7,
+      "channel": "web_form",
+      "customer_email": "admin@healthtech.io",
+      "customer_name": "David Park",
+      "subject": "SSO setup for Enterprise",
+      "content": "We recently upgraded to Enterprise and need help setting up SAML SSO with Okta. Is there documentation or can someone from support help us configure it?",
+      "category": "authentication",
+      "priority": "high",
+      "sentiment": 0.7,
+      "requires_escalation": false
+    },
+    {
+      "id": 8,
+      "channel": "whatsapp",
+      "customer_phone": "+14155552468",
+      "content": "how do i invite team members to my project?",
+      "category": "general",
+      "priority": "low",
+      "sentiment": 0.8,
+      "requires_escalation": false
+    },
+    {
+      "id": 9,
+      "channel": "email",
+      "customer_email": "legal@bigcorp.com",
+      "subject": "Legal inquiry - data processing agreement",
+      "content": "Dear DevFlow Team,\n\nOur legal department requires a Data Processing Agreement (DPA) before we can proceed with the Enterprise subscription. Please send your standard DPA for review.\n\nRegards,\nLegal Department\nBigCorp Inc.",
+      "category": "legal",
+      "priority": "high",
+      "sentiment": 0.6,
+      "requires_escalation": true
+    },
+    {
+      "id": 10,
+      "channel": "web_form",
+      "customer_email": "frustrated@dev.io",
+      "customer_name": "Alex Turner",
+      "subject": "Pipeline keeps failing",
+      "content": "My pipeline has failed 5 times in a row with no clear error message. I've checked the logs but they don't show anything useful. This is blocking our entire release.",
+      "category": "cicd",
+      "priority": "high",
+      "sentiment": 0.3,
+      "requires_escalation": false
+    },
+    {
+      "id": 11,
+      "channel": "email",
+      "customer_email": "newbie@firststartup.com",
+      "subject": "Getting started - first project",
+      "content": "Hello,\n\nI'm new to DevFlow and trying to create my first project. What template should I choose for a Python Django application?\n\nThanks for your help!",
+      "category": "general",
+      "priority": "low",
+      "sentiment": 0.9,
+      "requires_escalation": false
+    },
+    {
+      "id": 12,
+      "channel": "whatsapp",
+      "customer_phone": "+14155553690",
+      "content": "can i downgrade from pro to starter? we're a small team and not using all features",
+      "category": "billing",
+      "priority": "low",
+      "sentiment": 0.6,
+      "requires_escalation": false
+    },
+    {
+      "id": 13,
+      "channel": "email",
+      "customer_email": "security@fintech.io",
+      "subject": "Security compliance questions",
+      "content": "Hi,\n\nWe need to verify that DevFlow is SOC 2 Type II compliant before we can use it for our financial services application. Can you provide compliance documentation?\n\nSecurity Team",
+      "category": "compliance",
+      "priority": "high",
+      "sentiment": 0.7,
+      "requires_escalation": true
+    },
+    {
+      "id": 14,
+      "channel": "web_form",
+      "customer_email": "qa@testcorp.com",
+      "customer_name": "Jennifer Lee",
+      "subject": "Bug: Issue status not updating",
+      "content": "When I move an issue from 'In Progress' to 'Done', it reverts back to 'In Progress' after a few seconds. This happens consistently in Chrome and Firefox.",
+      "category": "bug_report",
+      "priority": "medium",
+      "sentiment": 0.5,
+      "requires_escalation": false
+    },
+    {
+      "id": 15,
+      "channel": "whatsapp",
+      "customer_phone": "+14155554321",
+      "content": "is there a mobile app for devflow?",
+      "category": "general",
+      "priority": "low",
+      "sentiment": 0.7,
+      "requires_escalation": false
+    },
+    {
+      "id": 16,
+      "channel": "email",
+      "customer_email": "billing@startup.io",
+      "subject": "Invoice request",
+      "content": "Hi,\n\nCould you please send me the invoice for last month's Professional plan subscription? We need it for our accounting records.\n\nAccount #: ACC-12345\n\nThank you",
+      "category": "billing",
+      "priority": "medium",
+      "sentiment": 0.8,
+      "requires_escalation": false
+    },
+    {
+      "id": 17,
+      "channel": "web_form",
+      "customer_email": "devops@scale.io",
+      "customer_name": "Robert Kim",
+      "subject": "Custom runner configuration",
+      "content": "We need to set up self-hosted runners with specific Docker configurations. Is this possible? Where can I find documentation on custom runner setup?",
+      "category": "cicd",
+      "priority": "medium",
+      "sentiment": 0.7,
+      "requires_escalation": false
+    },
+    {
+      "id": 18,
+      "channel": "whatsapp",
+      "customer_phone": "+14155556789",
+      "content": "human agent please, this bot is not helpful",
+      "category": "escalation",
+      "priority": "high",
+      "sentiment": 0.2,
+      "requires_escalation": true
+    },
+    {
+      "id": 19,
+      "channel": "email",
+      "customer_email": "feedback@happyuser.com",
+      "subject": "Feature request: Dark mode",
+      "content": "Hi DevFlow Team,\n\nLove your product! One suggestion: could you add a dark mode to the dashboard? Many of us work late nights and would appreciate easier viewing.\n\nKeep up the great work!",
+      "category": "feedback",
+      "priority": "low",
+      "sentiment": 0.95,
+      "requires_escalation": false
+    },
+    {
+      "id": 20,
+      "channel": "web_form",
+      "customer_email": "migration@oldcompany.com",
+      "customer_name": "Thomas Wright",
+      "subject": "Migrating from Jira",
+      "content": "We're considering switching from Jira to DevFlow. How difficult is the migration process? Can we import all our existing issues, sprints, and history?",
+      "category": "integrations",
+      "priority": "medium",
+      "sentiment": 0.7,
+      "requires_escalation": false
+    },
+    {
+      "id": 21,
+      "channel": "email",
+      "customer_email": "",
+      "subject": "",
+      "content": "",
+      "category": "invalid",
+      "priority": "low",
+      "sentiment": 0.5,
+      "requires_escalation": false
+    },
+    {
+      "id": 22,
+      "channel": "whatsapp",
+      "customer_phone": "+14155557890",
+      "content": "thx",
+      "category": "general",
+      "priority": "low",
+      "sentiment": 0.8,
+      "requires_escalation": false
+    },
+    {
+      "id": 23,
+      "channel": "email",
+      "customer_email": "angry@customer.com",
+      "subject": "WORST SERVICE EVER - LAWSUIT THREAT",
+      "content": "Your incompetent platform has cost us THOUSANDS. If you don't provide a full refund within 24 hours, you'll be hearing from our attorneys. This is unacceptable business practice and we're documenting everything for legal action.",
+      "category": "legal",
+      "priority": "critical",
+      "sentiment": 0.05,
+      "requires_escalation": true
+    },
+    {
+      "id": 24,
+      "channel": "web_form",
+      "customer_email": "help@needitnow.com",
+      "customer_name": "Emergency User",
+      "subject": "Production down - need immediate help",
+      "content": "Our production deployment failed and we can't roll back. The pipeline shows success but the application isn't running. This is affecting thousands of users RIGHT NOW.",
+      "category": "critical",
+      "priority": "critical",
+      "sentiment": 0.2,
+      "requires_escalation": true
+    },
+    {
+      "id": 25,
+      "channel": "whatsapp",
+      "customer_phone": "+14155558901",
+      "content": "do you support graphql apis?",
+      "category": "api",
+      "priority": "low",
+      "sentiment": 0.7,
+      "requires_escalation": false
+    }
+  ],
+  "channel_statistics": {
+    "email": 10,
+    "whatsapp": 9,
+    "web_form": 6
+  },
+  "category_distribution": {
+    "authentication": 2,
+    "cicd": 4,
+    "pricing": 1,
+    "integrations": 2,
+    "critical": 2,
+    "api": 2,
+    "general": 5,
+    "legal": 2,
+    "billing": 2,
+    "bug_report": 1,
+    "compliance": 1,
+    "feedback": 1,
+    "escalation": 1,
+    "invalid": 1
+  },
+  "escalation_required": 8,
+  "average_sentiment": 0.58
+}
