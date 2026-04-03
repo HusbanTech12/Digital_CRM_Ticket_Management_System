@@ -1,107 +1,75 @@
-import Link from 'next/link'
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react'
+import Link from 'next/link';
+import { Ticket, Github, Twitter, Linkedin, Mail } from 'lucide-react';
 
-const footerLinks = {
-  product: [
-    { name: 'Features', href: '/#features' },
-    { name: 'Pricing', href: '/#pricing' },
-    { name: 'Integrations', href: '/docs/integrations' },
-    { name: 'Changelog', href: '/changelog' },
-  ],
+const navigation = {
   support: [
-    { name: 'Help Center', href: '/support' },
+    { name: 'Submit Ticket', href: '/support' },
     { name: 'Documentation', href: '/docs' },
-    { name: 'API Reference', href: '/docs/api' },
-    { name: 'Status', href: '/status' },
+    { name: 'About Us', href: '/about' },
   ],
   company: [
-    { name: 'About', href: '/about' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Contact', href: '/about#contact' },
+    { name: 'TechCorp', href: 'https://techcorp.example.com' },
+    { name: 'Privacy Policy', href: '/privacy' },
+    { name: 'Terms of Service', href: '/terms' },
   ],
-  legal: [
-    { name: 'Privacy', href: '/privacy' },
-    { name: 'Terms', href: '/terms' },
-    { name: 'Cookie Policy', href: '/cookies' },
-    { name: 'GDPR', href: '/gdpr' },
+  social: [
+    {
+      name: 'GitHub',
+      href: 'https://github.com/techcorp',
+      icon: Github,
+    },
+    {
+      name: 'Twitter',
+      href: 'https://twitter.com/techcorp',
+      icon: Twitter,
+    },
+    {
+      name: 'LinkedIn',
+      href: 'https://linkedin.com/company/techcorp',
+      icon: Linkedin,
+    },
+    {
+      name: 'Email',
+      href: 'mailto:support@techcorp.example.com',
+      icon: Mail,
+    },
   ],
-}
-
-const socialLinks = [
-  { name: 'GitHub', href: 'https://github.com/techcorp', icon: Github },
-  { name: 'Twitter', href: 'https://twitter.com/techcorp', icon: Twitter },
-  { name: 'LinkedIn', href: 'https://linkedin.com/company/techcorp', icon: Linkedin },
-  { name: 'Email', href: 'mailto:support@techcorp.com', icon: Mail },
-]
+};
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-dark-900 dark:bg-black text-dark-300">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
+    <footer className="bg-dark-900 dark:bg-dark-950 border-t border-dark-800">
+      <div className="container-custom py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
-          <div className="col-span-2">
+          <div className="col-span-1 md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">D</span>
-              </div>
-              <span className="text-xl font-bold text-white">DevFlow</span>
+              <Ticket className="h-8 w-8 text-primary-500" />
+              <span className="text-xl font-bold text-white">
+                TechCorp<span className="text-primary-500">Support</span>
+              </span>
             </Link>
-            <p className="text-sm text-dark-400 mb-4 max-w-xs">
-              All-in-one development workflow management platform for modern software teams.
+            <p className="text-dark-400 text-sm max-w-md">
+              AI-powered customer support available 24/7. Get instant answers to your questions
+              or escalate to human support when needed.
             </p>
-            {/* Social Links */}
-            <div className="flex space-x-4">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-dark-400 hover:text-white transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="sr-only">{link.name}</span>
-                  <link.icon className="h-5 w-5" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Product Links */}
-          <div>
-            <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
-              Product
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.product.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-dark-400 hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Support Links */}
           <div>
-            <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
               Support
             </h3>
             <ul className="space-y-3">
-              {footerLinks.support.map((link) => (
-                <li key={link.name}>
+              {navigation.support.map((item) => (
+                <li key={item.name}>
                   <Link
-                    href={link.href}
-                    className="text-sm text-dark-400 hover:text-white transition-colors"
+                    href={item.href}
+                    className="text-dark-400 hover:text-primary-400 text-sm transition-colors"
                   >
-                    {link.name}
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -110,36 +78,17 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
+            <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">
               Company
             </h3>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
+              {navigation.company.map((item) => (
+                <li key={item.name}>
                   <Link
-                    href={link.href}
-                    className="text-sm text-dark-400 hover:text-white transition-colors"
+                    href={item.href}
+                    className="text-dark-400 hover:text-primary-400 text-sm transition-colors"
                   >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal Links */}
-          <div>
-            <h3 className="text-sm font-semibold text-white tracking-wider uppercase mb-4">
-              Legal
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-dark-400 hover:text-white transition-colors"
-                  >
-                    {link.name}
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -147,29 +96,31 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Section */}
         <div className="mt-12 pt-8 border-t border-dark-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-dark-400">
+            <p className="text-dark-400 text-sm">
               &copy; {currentYear} TechCorp SaaS. All rights reserved.
             </p>
-            <div className="flex items-center gap-6">
-              <Link
-                href="/privacy"
-                className="text-sm text-dark-400 hover:text-white transition-colors"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="text-sm text-dark-400 hover:text-white transition-colors"
-              >
-                Terms of Service
-              </Link>
+            
+            {/* Social Links */}
+            <div className="flex gap-4">
+              {navigation.social.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-dark-400 hover:text-primary-400 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="h-5 w-5" aria-hidden="true" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

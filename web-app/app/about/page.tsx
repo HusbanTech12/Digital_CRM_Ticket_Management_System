@@ -1,205 +1,211 @@
-import { Mail, MapPin, Phone, Users, Target, Heart } from 'lucide-react'
-import Link from 'next/link'
+import { Card, CardContent } from '@/components/ui/Card';
+import { Badge } from '@/components/ui/Badge';
+import { 
+  Building2, 
+  Target, 
+  Users, 
+  Award, 
+  Clock, 
+  Mail, 
+  MapPin, 
+  Phone,
+  CheckCircle2,
+  Zap,
+  Shield,
+  Globe
+} from 'lucide-react';
 
-const team = [
-  { name: 'John Smith', role: 'CEO & Co-Founder', image: 'https://i.pravatar.cc/150?img=1' },
-  { name: 'Sarah Johnson', role: 'CTO & Co-Founder', image: 'https://i.pravatar.cc/150?img=2' },
-  { name: 'Mike Chen', role: 'Head of Product', image: 'https://i.pravatar.cc/150?img=3' },
-  { name: 'Emily Davis', role: 'Head of Engineering', image: 'https://i.pravatar.cc/150?img=4' },
-]
-
-const values = [
+const features = [
   {
-    icon: Target,
-    title: 'Customer First',
-    description: 'Everything we build starts with understanding our customers needs.',
+    icon: Zap,
+    title: 'Lightning Fast',
+    description: 'AI-powered responses in under 30 seconds',
   },
   {
-    icon: Heart,
-    title: 'Transparency',
-    description: 'We believe in open communication and honest relationships.',
+    icon: Shield,
+    title: 'Enterprise Security',
+    description: 'SOC 2 Type II compliant with advanced encryption',
   },
   {
-    icon: Users,
-    title: 'Teamwork',
-    description: 'Great products are built by great teams working together.',
+    icon: Globe,
+    title: '24/7 Availability',
+    description: 'Round-the-clock support across all time zones',
   },
-]
+];
 
 const stats = [
-  { label: 'Founded', value: '2020' },
-  { label: 'Employees', value: '150+' },
-  { label: 'Customers', value: '10,000+' },
-  { label: 'Countries', value: '50+' },
-]
+  { label: 'Tickets Processed', value: '100,000+', icon: Clock },
+  { label: 'Customer Satisfaction', value: '98%', icon: Award },
+  { label: 'Resolution Rate', value: '85%', icon: CheckCircle2 },
+  { label: 'Active Users', value: '50,000+', icon: Users },
+];
+
+const team = [
+  {
+    name: 'TechCorp AI Lab',
+    role: 'AI Research & Development',
+    description: 'Our team of AI researchers and engineers work tirelessly to improve our customer success agent.',
+  },
+  {
+    name: 'Customer Success Team',
+    role: 'Human Support Escalation',
+    description: 'When complex issues arise, our experienced human support team is ready to help.',
+  },
+  {
+    name: 'Platform Engineering',
+    role: 'Infrastructure & Reliability',
+    description: 'Ensuring 99.9% uptime and seamless operation of our support infrastructure.',
+  },
+];
 
 export default function AboutPage() {
   return (
-    <div className="bg-white dark:bg-dark-900">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-dark-900 to-dark-800 text-white py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-bold sm:text-5xl mb-6">
-            About TechCorp
-          </h1>
-          <p className="text-xl text-dark-300 max-w-3xl mx-auto">
-            We're on a mission to make software development more accessible,
-            efficient, and enjoyable for teams everywhere.
+    <div className="px-4 py-12">
+      <div className="max-w-7xl mx-auto">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <h1 className="heading-2 mb-4">About TechCorp Support</h1>
+          <p className="text-xl text-dark-600 dark:text-dark-400 max-w-3xl mx-auto">
+            We&apos;re revolutionizing customer support with AI-powered assistance that works 24/7 
+            to help you succeed with the DevFlow Platform.
           </p>
         </div>
-      </section>
 
-      {/* Stats Section */}
-      <section className="py-12 bg-dark-50 dark:bg-dark-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {/* Company Info Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <Card>
+            <CardContent className="flex items-start gap-4 p-6">
+              <Building2 className="w-10 h-10 text-primary-600 flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold text-dark-900 dark:text-white mb-1">
+                  TechCorp SaaS
+                </h3>
+                <p className="text-sm text-dark-600 dark:text-dark-400">
+                  Leading provider of development workflow management solutions
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="flex items-start gap-4 p-6">
+              <Target className="w-10 h-10 text-primary-600 flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold text-dark-900 dark:text-white mb-1">
+                  Our Mission
+                </h3>
+                <p className="text-sm text-dark-600 dark:text-dark-400">
+                  To provide instant, accurate, and helpful support to every customer
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="flex items-start gap-4 p-6">
+              <Award className="w-10 h-10 text-primary-600 flex-shrink-0" />
+              <div>
+                <h3 className="font-semibold text-dark-900 dark:text-white mb-1">
+                  Industry Leading
+                </h3>
+                <p className="text-sm text-dark-600 dark:text-dark-400">
+                  Trusted by 500+ enterprise customers worldwide
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Stats Section */}
+        <section className="mb-16">
+          <h2 className="heading-3 text-center mb-8">Our Impact</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-4xl font-bold text-primary-600">{stat.value}</div>
-                <div className="mt-2 text-dark-600 dark:text-dark-400">{stat.label}</div>
-              </div>
+              <Card key={stat.label} variant="elevated">
+                <CardContent className="text-center p-6">
+                  <stat.icon className="w-8 h-8 text-primary-600 mx-auto mb-3" />
+                  <div className="text-3xl font-bold text-dark-900 dark:text-white mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-dark-600 dark:text-dark-400">
+                    {stat.label}
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Story Section */}
-      <section className="section-padding">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-dark-900 dark:text-white mb-6">
-                Our Story
-              </h2>
-              <div className="space-y-4 text-dark-600 dark:text-dark-300">
-                <p>
-                  TechCorp was founded in 2020 by a group of developers who were frustrated
-                  with the fragmented state of development tools. They believed there had
-                  to be a better way to manage the entire software development lifecycle.
-                </p>
-                <p>
-                  Today, DevFlow Platform serves over 10,000 customers worldwide, from
-                  startups to Fortune 500 companies. Our team of 150+ employees is
-                  dedicated to building the best development workflow platform.
-                </p>
-                <p>
-                  We're backed by leading venture capital firms and remain committed to
-                  our mission of making software development more accessible and efficient
-                  for teams everywhere.
-                </p>
-              </div>
-            </div>
-            <div className="bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-900/30 dark:to-primary-800/30 rounded-2xl h-96 flex items-center justify-center">
-              <div className="text-primary-600 dark:text-primary-400 text-center">
-                <Users className="h-32 w-32 mx-auto mb-4" />
-                <p className="text-lg font-medium">Our Team</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="section-padding bg-dark-50 dark:bg-dark-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-dark-900 dark:text-white text-center mb-12">
-            Our Values
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {values.map((value) => (
-              <div key={value.title} className="text-center">
-                <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <value.icon className="h-8 w-8 text-primary-600 dark:text-primary-400" />
-                </div>
-                <h3 className="text-xl font-semibold text-dark-900 dark:text-white mb-2">
-                  {value.title}
-                </h3>
-                <p className="text-dark-600 dark:text-dark-300">
-                  {value.description}
-                </p>
-              </div>
+        {/* Features Section */}
+        <section className="mb-16">
+          <h2 className="heading-3 text-center mb-8">Why Choose Our Support?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {features.map((feature) => (
+              <Card key={feature.title} className="text-center">
+                <CardContent className="p-6">
+                  <feature.icon className="w-12 h-12 text-primary-600 mx-auto mb-4" />
+                  <h3 className="text-lg font-semibold text-dark-900 dark:text-white mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-dark-600 dark:text-dark-400">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Team Section */}
-      <section className="section-padding">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-dark-900 dark:text-white text-center mb-12">
-            Leadership Team
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {/* Team Section */}
+        <section className="mb-16">
+          <h2 className="heading-3 text-center mb-8">Behind the AI</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {team.map((member) => (
-              <div key={member.name} className="text-center">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
-                />
-                <h3 className="text-lg font-semibold text-dark-900 dark:text-white">
-                  {member.name}
-                </h3>
-                <p className="text-dark-600 dark:text-dark-400 text-sm">
-                  {member.role}
-                </p>
-              </div>
+              <Card key={member.name}>
+                <CardContent className="p-6">
+                  <Users className="w-10 h-10 text-primary-600 mb-4" />
+                  <h3 className="text-lg font-semibold text-dark-900 dark:text-white mb-1">
+                    {member.name}
+                  </h3>
+                  <Badge variant="primary" className="mb-3">{member.role}</Badge>
+                  <p className="text-sm text-dark-600 dark:text-dark-400">
+                    {member.description}
+                  </p>
+                </CardContent>
+              </Card>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="section-padding bg-dark-900 text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Get in Touch
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <Mail className="h-8 w-8 mx-auto mb-4 text-primary-400" />
-              <h3 className="text-lg font-semibold mb-2">Email</h3>
-              <a href="mailto:hello@techcorp.com" className="text-dark-300 hover:text-white">
-                hello@techcorp.com
-              </a>
-            </div>
-            <div className="text-center">
-              <Phone className="h-8 w-8 mx-auto mb-4 text-primary-400" />
-              <h3 className="text-lg font-semibold mb-2">Phone</h3>
-              <a href="tel:+14155551234" className="text-dark-300 hover:text-white">
-                +1 (415) 555-1234
-              </a>
-            </div>
-            <div className="text-center">
-              <MapPin className="h-8 w-8 mx-auto mb-4 text-primary-400" />
-              <h3 className="text-lg font-semibold mb-2">Office</h3>
-              <p className="text-dark-300">
-                123 Market Street<br />
-                San Francisco, CA 94103
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="section-padding bg-primary-600">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Join Our Team
-          </h2>
-          <p className="text-lg text-primary-100 mb-8 max-w-2xl mx-auto">
-            We're always looking for talented individuals to join our mission.
-            Check out our open positions and become part of the TechCorp family.
-          </p>
-          <Link
-            href="/careers"
-            className="bg-white text-primary-600 hover:bg-primary-50 font-medium py-3 px-8 rounded-lg transition-colors inline-block"
-          >
-            View Open Positions
-          </Link>
-        </div>
-      </section>
+        {/* Contact Info */}
+        <section>
+          <Card variant="elevated">
+            <CardContent className="p-8">
+              <h2 className="heading-3 text-center mb-6">Get in Touch</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="flex items-center gap-3 justify-center">
+                  <Mail className="w-5 h-5 text-primary-600" />
+                  <span className="text-dark-700 dark:text-dark-300">
+                    support@techcorp.example.com
+                  </span>
+                </div>
+                <div className="flex items-center gap-3 justify-center">
+                  <Phone className="w-5 h-5 text-primary-600" />
+                  <span className="text-dark-700 dark:text-dark-300">
+                    +1 (555) 123-4567
+                  </span>
+                </div>
+                <div className="flex items-center gap-3 justify-center">
+                  <MapPin className="w-5 h-5 text-primary-600" />
+                  <span className="text-dark-700 dark:text-dark-300">
+                    San Francisco, CA
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+      </div>
     </div>
-  )
+  );
 }

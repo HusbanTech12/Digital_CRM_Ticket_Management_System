@@ -1,14 +1,18 @@
 import Link from 'next/link'
-import { 
-  Zap, 
-  Shield, 
-  BarChart3, 
-  Users, 
-  GitBranch, 
+import {
+  Zap,
+  Shield,
+  BarChart3,
+  Users,
+  GitBranch,
   Clock,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  MessageCircle,
+  Mail,
+  Globe
 } from 'lucide-react'
+import { Button } from '@/components/ui'
 
 const features = [
   {
@@ -54,6 +58,30 @@ const stats = [
   { label: 'Enterprise Customers', value: '500+' },
 ]
 
+const channels = [
+  {
+    name: 'Email Support',
+    description: 'Send us an email and get a detailed response within 30 seconds',
+    icon: Mail,
+    href: '/support',
+    color: 'text-blue-600',
+  },
+  {
+    name: 'WhatsApp',
+    description: 'Chat with our AI assistant on WhatsApp for quick answers',
+    icon: MessageCircle,
+    href: '/support',
+    color: 'text-green-600',
+  },
+  {
+    name: 'Web Form',
+    description: 'Submit a ticket through our web form for tracking and follow-up',
+    icon: Globe,
+    href: '/support',
+    color: 'text-primary-600',
+  },
+]
+
 export default function HomePage() {
   return (
     <div className="bg-white dark:bg-dark-900">
@@ -62,20 +90,20 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-white dark:from-dark-800 dark:to-dark-900" />
         <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-dark-900 dark:text-white sm:text-5xl md:text-6xl">
+            <h1 className="heading-1">
               <span className="block">Ship Faster with</span>
               <span className="block text-primary-600">DevFlow Platform</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-dark-600 dark:text-dark-300">
-              All-in-one development workflow management. Plan, build, test, and deploy 
+              All-in-one development workflow management. Plan, build, test, and deploy
               your software with confidence. Trusted by 50,000+ developers worldwide.
             </p>
-            <div className="mt-10 flex justify-center gap-4">
+            <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
               <Link
-                href="https://app.devflow.com/signup"
-                className="btn-primary inline-flex items-center gap-2"
+                href="/support"
+                className="btn-primary inline-flex items-center justify-center gap-2"
               >
-                Start Free Trial
+                Get Support
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
@@ -103,11 +131,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="section-padding">
+      {/* Support Channels Section */}
+      <section className="section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-dark-900 dark:text-white sm:text-4xl">
+            <h2 className="heading-2">
+              Multiple Ways to Get Help
+            </h2>
+            <p className="mt-4 text-lg text-dark-600 dark:text-dark-300">
+              Choose your preferred channel to contact our AI-powered support team
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {channels.map((channel) => (
+              <Link
+                key={channel.name}
+                href={channel.href}
+                className="card hover:shadow-xl transition-all hover:-translate-y-1 group"
+              >
+                <channel.icon className={`h-12 w-12 ${channel.color} mb-4 group-hover:scale-110 transition-transform`} />
+                <h3 className="text-xl font-semibold text-dark-900 dark:text-white mb-2">
+                  {channel.name}
+                </h3>
+                <p className="text-dark-600 dark:text-dark-300">
+                  {channel.description}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="section-padding bg-dark-50 dark:bg-dark-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="heading-2">
               Everything You Need to Ship
             </h2>
             <p className="mt-4 text-lg text-dark-600 dark:text-dark-300">
@@ -131,10 +190,10 @@ export default function HomePage() {
       </section>
 
       {/* Integrations Section */}
-      <section className="section-padding bg-dark-50 dark:bg-dark-800">
+      <section className="section-padding">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-dark-900 dark:text-white">
+            <h2 className="heading-2">
               Integrates with Your Tools
             </h2>
             <p className="mt-4 text-lg text-dark-600 dark:text-dark-300">
@@ -145,7 +204,7 @@ export default function HomePage() {
             {integrations.map((integration) => (
               <div
                 key={integration}
-                className="bg-white dark:bg-dark-700 px-8 py-4 rounded-lg shadow-sm font-semibold text-dark-700 dark:text-dark-200"
+                className="bg-white dark:bg-dark-700 px-8 py-4 rounded-lg shadow-sm font-semibold text-dark-700 dark:text-dark-200 hover:shadow-md transition-shadow"
               >
                 {integration}
               </div>
@@ -162,20 +221,22 @@ export default function HomePage() {
           </h2>
           <p className="text-lg text-primary-100 mb-8 max-w-2xl mx-auto">
             Join thousands of teams already using DevFlow to ship faster.
-            Start your free 14-day trial today.
+            Need help? Our AI-powered support team is available 24/7.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              href="https://app.devflow.com/signup"
-              className="bg-white text-primary-600 hover:bg-primary-50 font-medium py-3 px-8 rounded-lg transition-colors"
-            >
-              Start Free Trial
-            </Link>
-            <Link
               href="/support"
-              className="bg-primary-700 text-white hover:bg-primary-800 font-medium py-3 px-8 rounded-lg transition-colors"
+              className="bg-white text-primary-600 hover:bg-primary-50 font-medium py-3 px-8 rounded-lg transition-colors inline-flex items-center justify-center gap-2"
             >
               Contact Support
+              <MessageCircle className="h-5 w-5" />
+            </Link>
+            <Link
+              href="/docs"
+              className="bg-primary-700 text-white hover:bg-primary-800 font-medium py-3 px-8 rounded-lg transition-colors inline-flex items-center justify-center gap-2"
+            >
+              Browse Documentation
+              <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
         </div>

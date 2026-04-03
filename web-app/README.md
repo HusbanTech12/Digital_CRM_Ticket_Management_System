@@ -1,232 +1,213 @@
 # TechCorp Customer Success Web App
 
-A professional, modern website built with Next.js 14 for TechCorp SaaS's DevFlow Platform.
+A Next.js-based customer support portal for the TechCorp DevFlow Platform. This application provides a 24/7 AI-powered support interface with multiple contact channels.
 
-## 🚀 Features
+## Features
 
-- **Modern UI/UX** - Built with Tailwind CSS and responsive design
-- **Support Form** - Complete support ticket submission with validation
-- **Documentation Hub** - Organized documentation categories
-- **About Page** - Company information and team showcase
-- **API Integration** - Seamless integration with backend API
-- **Dark Mode Ready** - Full dark mode support
-- **TypeScript** - Type-safe codebase
-- **SEO Optimized** - Meta tags and semantic HTML
+- **Support Form**: Submit support tickets with category and priority selection
+- **Ticket Tracking**: Look up and track existing support tickets
+- **Documentation Portal**: Browse help articles and guides
+- **About Page**: Company information and support statistics
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+- **Dark Mode Support**: Automatic dark mode based on system preferences
 
-## 📁 Project Structure
+## Tech Stack
 
-```
-web-app/
-├── app/
-│   ├── layout.tsx              # Root layout with Header/Footer
-│   ├── page.tsx                # Home page
-│   ├── support/
-│   │   └── page.tsx            # Support page with form
-│   ├── docs/
-│   │   └── page.tsx            # Documentation page
-│   ├── about/
-│   │   └── page.tsx            # About page
-│   └── api/
-│       └── support/
-│           └── route.ts        # API route for support form
-├── components/
-│   ├── layout/
-│   │   ├── Header.tsx          # Navigation header
-│   │   └── Footer.tsx          # Site footer
-│   └── sections/
-│       └── SupportForm.tsx     # Support form component
-├── styles/
-│   └── globals.css             # Global styles
-├── lib/                        # Utility functions
-├── public/                     # Static assets
-└── package.json
-```
+- **Framework**: Next.js 14.1.0 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **UI Components**: Custom built components
 
-## 🛠️ Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18.17 or later
 - npm or yarn
-- Backend API running (for form submission)
 
 ### Installation
 
+1. Clone the repository:
 ```bash
-# Navigate to web-app directory
-cd web-app
+cd Digital_CRM_Ticket_Management_System/web-app
+```
 
-# Install dependencies
+2. Install dependencies:
+```bash
 npm install
+```
 
-# Copy environment variables
+3. Copy the environment file:
+```bash
 cp .env.example .env.local
-
-# Edit .env.local with your API URL
-# NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
 ```
 
-### Development
+4. Update the environment variables in `.env.local`:
+```env
+API_BASE_URL=http://localhost:8000
+OPENAI_API_KEY=your-api-key-here
+```
 
+5. Run the development server:
 ```bash
-# Start development server
 npm run dev
-
-# Open browser to http://localhost:3000
 ```
 
-### Build for Production
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-# Build the application
-npm run build
+## Project Structure
 
-# Start production server
-npm start
+```
+web-app/
+├── app/                      # Next.js App Router pages
+│   ├── about/                # About page
+│   ├── api/                  # API routes
+│   │   └── support/
+│   │       └── submit/       # Support ticket submission API
+│   ├── docs/                 # Documentation page
+│   ├── support/              # Support pages
+│   │   ├── portal/           # Ticket tracking portal
+│   │   └── page.tsx          # Support form page
+│   ├── layout.tsx            # Root layout
+│   └── page.tsx              # Home page
+├── components/               # React components
+│   ├── layout/               # Layout components
+│   │   ├── Header.tsx        # Site header
+│   │   └── Footer.tsx        # Site footer
+│   └── ui/                   # UI components
+│       ├── Badge.tsx         # Badge component
+│       ├── Button.tsx        # Button component
+│       ├── Card.tsx          # Card components
+│       ├── Input.tsx         # Input component
+│       ├── Select.tsx        # Select component
+│       ├── Textarea.tsx      # Textarea component
+│       └── index.ts          # Component exports
+├── lib/                      # Utility functions
+│   └── utils.ts              # Helper functions
+├── styles/                   # Global styles
+│   └── globals.css           # Tailwind CSS styles
+├── types/                    # TypeScript types
+│   └── index.ts              # Type definitions
+├── next.config.js            # Next.js configuration
+├── tailwind.config.js        # Tailwind CSS configuration
+├── tsconfig.json             # TypeScript configuration
+└── package.json              # Dependencies
 ```
 
-## 📄 Pages
+## Pages
 
 ### Home Page (`/`)
-- Hero section with CTA
-- Statistics showcase
-- Features grid
-- Integrations section
-- CTA banner
+Landing page with product features, stats, and support channel information.
 
-### Support Page (`/support`)
-- Support options cards (AI, Email, Live Chat)
-- Complete support form with validation
-- FAQ section
-- Ticket ID tracking
+### Support Form (`/support`)
+Submit a new support ticket with:
+- Name and email
+- Subject and category
+- Priority level
+- Detailed message
 
-### Documentation Page (`/docs`)
-- Search functionality
-- Popular topics quick links
-- Documentation categories
-- Help CTA section
+### Support Portal (`/support/portal`)
+Track existing tickets by searching with:
+- Ticket ID
+- Email address
+- Subject keywords
 
-### About Page (`/about`)
-- Company story
-- Statistics
-- Values section
-- Team showcase
-- Contact information
+### Documentation (`/docs`)
+Browse documentation by category:
+- Getting Started
+- Features
+- Integrations
+- API Reference
+- Security
+- Troubleshooting
 
-## 🎨 Components
+### About (`/about`)
+Company information, support statistics, and team details.
 
-### Header
-- Responsive navigation
-- Mobile menu
-- Logo and branding
-- Sign in / Sign up buttons
+## API Routes
 
-### Footer
-- Multi-column links
-- Social media links
-- Copyright information
-- Legal links
+### POST `/api/support/submit`
+Submit a new support ticket.
 
-### SupportForm
-- Client-side validation
-- Real-time error feedback
-- Success/error states
-- API integration
+**Request Body:**
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "subject": "Issue with pipeline",
+  "category": "technical",
+  "priority": "high",
+  "message": "Detailed description of the issue..."
+}
+```
 
-## 🔧 Configuration
+**Response:**
+```json
+{
+  "ticket_id": "TKT-ABC123-XYZ789",
+  "status": "submitted",
+  "message": "Your support request has been submitted successfully",
+  "estimated_response_time": "15 minutes"
+}
+```
 
-### Tailwind Config
+## Available Scripts
 
-Custom colors configured in `tailwind.config.js`:
-- `primary` - Brand colors (blue)
-- `dark` - Neutral colors (slate)
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-### Environment Variables
+## Environment Variables
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `NEXT_PUBLIC_API_BASE_URL` | Backend API URL (client) | `http://localhost:8000` |
-| `API_BASE_URL` | Backend API URL (server) | `http://localhost:8000` |
+| `API_BASE_URL` | Backend API URL | `http://localhost:8000` |
+| `OPENAI_API_KEY` | OpenAI API key for AI agent | (required for AI features) |
+| `DATABASE_URL` | PostgreSQL connection string | (required for production) |
+| `KAFKA_BROKERS` | Kafka broker addresses | (required for event streaming) |
 
-## 🎯 Features Detail
+## Integration with Backend
 
-### Form Validation
-- Name: Minimum 2 characters
-- Email: Valid email format
-- Subject: Minimum 5 characters
-- Message: Minimum 10 characters
-- Category: Required selection
-- Priority: Optional selection
+This frontend is designed to work with the Customer Success FTE backend:
 
-### API Integration
-- POST to `/api/support` (Next.js API route)
-- Forwards to backend `/support/submit`
-- Error handling with user-friendly messages
-- Loading states during submission
+1. **Ticket Submission**: Posts to `/api/support/submit` which forwards to the backend
+2. **AI Processing**: Backend processes tickets using OpenAI Agents SDK
+3. **Event Streaming**: Kafka events for real-time updates
+4. **Database**: PostgreSQL for persistent storage
 
-### Responsive Design
-- Mobile-first approach
-- Breakpoints: sm (640px), md (768px), lg (1024px)
-- Mobile menu for navigation
-- Grid layouts adapt to screen size
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-```bash
-# Install Vercel CLI
-npm install -g vercel
-
-# Deploy
-vercel
-```
+## Production Deployment
 
 ### Docker
 
 ```bash
-# Build Docker image
-docker build -t techcorp-web .
-
-# Run container
-docker run -p 3000:3000 techcorp-web
+docker build -t techcorp-support .
+docker run -p 3000:3000 --env-file .env.local techcorp-support
 ```
 
-### Environment Variables for Production
+### Kubernetes
 
-Set these in your hosting platform:
-- `NEXT_PUBLIC_API_BASE_URL` = Your production API URL
-- `API_BASE_URL` = Your production API URL (server-side)
-
-## 📱 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## 🧪 Testing
+Apply the Kubernetes manifests from the `production/k8s/` directory:
 
 ```bash
-# Run tests (when configured)
-npm test
+kubectl apply -f production/k8s/deployment.yaml
 ```
 
-## 📝 Code Style
+### Vercel
 
-- ESLint configured via Next.js
-- TypeScript strict mode enabled
-- Prettier for formatting (optional)
+1. Push code to GitHub
+2. Import project in Vercel
+3. Configure environment variables
+4. Deploy
 
-## 🔗 Related
+## Contributing
 
-- [Backend API Documentation](../production/README.md)
-- [Hackathon Specification](../The%20CRM%20Digital%20FTE%20Factory%20Final%20Hackathon%205.md)
+1. Create a feature branch
+2. Make your changes
+3. Run tests and linting
+4. Submit a pull request
 
-## 📄 License
+## License
 
-Proprietary - TechCorp SaaS
-
----
-
-**Built with Next.js 14, TypeScript, and Tailwind CSS**
+Copyright (c) 2026 TechCorp SaaS. All rights reserved.
